@@ -43,8 +43,7 @@ const Login = (props) => {
   // деструктуризация объекта и переназначение перемен.
   const { isValid: emailIsValid } = emailState;
   const { isValid: passwordIsValid } = passwordState;
-
-  console.log(passwordIsValid);
+  console.log(emailIsValid);
   // useEffect(() => {
   //   console.log("EFFECT RUNNING");
   //   return () => {

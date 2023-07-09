@@ -40,29 +40,25 @@ const Login = (props) => {
     value: "",
     isValid: null,
   });
-  // деструктуризация объекта и переназначение перемен.
-  const { isValid: emailIsValid } = emailState;
-  const { isValid: passwordIsValid } = passwordState;
 
-  console.log(passwordIsValid);
-  // useEffect(() => {
-  //   console.log("EFFECT RUNNING");
-  //   return () => {
-  //     console.log("EFFECT CLEANUP");
-  //   };
-  // }, []);
+  useEffect(() => {
+    console.log("EFFECT RUNNING");
+    return () => {
+      console.log("EFFECT CLEANUP");
+    };
+  }, []);
 
   useEffect(() => {
     const identifier = setTimeout(() => {
       console.log("Checking form validity");
-      setFormIsValid(emailIsValid && passwordIsValid);
+      setFormIsValid(emailState.isValid) && passwordState.isValid);
     }, 500);
 
     return () => {
       console.log("CLEANUP");
       clearTimeout(identifier);
     };
-  }, [emailIsValid, passwordIsValid]);
+  }, [emailState, passwordState]);
 
   const emailChangeHandler = (event) => {
     dispatchEmail({ type: "USER_INPUT", val: event.target.value });
