@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import classes from "./Navigation.module.css";
 import AuthContex from "../../context/auth-context";
 
-const Navigation = () => {
+const Navigation = (props) => {
   const ctx = useContext(AuthContex);
 
   return (
